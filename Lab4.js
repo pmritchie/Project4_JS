@@ -10,18 +10,32 @@ var firstGrade = inputInt("Please enter your first grade.")
 
 // function to check if input is a number
 function inputInt(message){
-var input = "";	
-while(input == "" || Number.isInteger(input) == false){
-var input = window.prompt(message)
-if (!Number.isInteger(parseInt(input)))
-{
+	var input = "";	
+	while(input == "" || Number.isInteger(input) == false){
+		var input = window.prompt(message)
+		if (!Number.isInteger(parseInt(input))){
 	alert("Please enter an interger to continue.")
+		}
+	else{
+		input = parseInt(input)
+		return input;
+		}
+	}
 }
-else{
-	input = parseInt(input)
-	return input;
-}
-}
+
+function inputFloat(message){
+	var input = "";
+	while(input == "" || input != parseFloat(input)){
+		var input = window.prompt(message)
+		input = parseFloat(input)
+		if(isNaN(input)){
+			alert("Please enter a number to continue.")
+		}
+		else{
+
+			return input;
+		}
+	}
 }
 
 var secondGrade = inputInt("Now enter your second grade.")
@@ -63,4 +77,38 @@ if(collectionSum >= 100){
 }
 else{
 	alert("You have "+collectionSum+" movies in your collection.")
+
 }
+
+//CHA_CHING WHILE LOOP
+
+var cardBalance = inputFloat("Enter the balance on your Gift Card.")
+while (cardBalance >0){
+	var price = inputFloat("Enter the price for your purchased item on Gift Card")
+
+cardBalance -= price;
+
+if(cardBalance <= 0){
+	alert("With your current purchase of $"+price+", you have exceded your Gift Card Balance\n" +
+		"You now own $"+cardBalance)
+	}
+else{
+	alert("With your current purchase of $"+price+", you will have $"+cardBalance+" left over!")
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
